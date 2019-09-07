@@ -1,11 +1,10 @@
 from flask import *
 import pyrebase
+import json
 app = Flask(__name__)
 
-config = {
-    # paste auth stuff here
-}
-
+with open('config.json') as config_file:
+    config = json.load(config_file)
 
 firebase = pyrebase.initialize_app(config)
 
@@ -25,9 +24,9 @@ def signin():
         password = request.form['pass']
         try:
             auth.sign_in_with_email_and_password(email, password)
-            return render_template('log.html', s=successful)
+            return render_template('log.html', t="Log In", s=successful)
         except:
-            return render_template('log.html', us=unsuccessful)
+            return render_template('log.html', t="Log In", us=unsuccessful)
 
     return render_template('log.html', t="Log In")
 
@@ -41,9 +40,9 @@ def signup():
         password = request.form['pass']
         try:
             auth.sign_in_with_email_and_password(email, password)
-            return render_template('log.html', s=successful)
+            return render_template('log.html', t="Sign Up", s=successful)
         except:
-            return render_template('log.html', us=unsuccessful)
+            return render_template('log.html', t="Sign Up", us=unsuccessful)
 
     return render_template('log.html', t="Sign Up")
 
