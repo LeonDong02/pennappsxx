@@ -1,1 +1,1 @@
-# pennappsxx
+# PennApps XX
