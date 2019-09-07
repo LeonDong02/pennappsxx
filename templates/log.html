@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+    {% if us %}
+        {{us}}
+    {% endif %}
+
+    {% if s %}
+        {{s}}
+    {% endif %}
+    <form action="/" method="POST">
+        <input type="name" name="name">
+        <input type="password" name="pass">
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>

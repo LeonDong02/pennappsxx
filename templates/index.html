@@ -11,7 +11,7 @@
     />
     <link rel="apple-touch-icon" href="logo192.png" />
     <link rel="manifest" href="./manifest.json" />
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
     <title>App</title>
   </head>
   <body>
@@ -46,8 +46,8 @@
             <h1 class="title is-1">Let the machine do the work.</h1>
             <h2 class="subtitle">Trustworthy stock predictor using machine learning technology.</h2>
             <div class="buttons are-large is-centered">
-                <button class="button is-rounded is-info">Sign up</button>
-                <button class="button is-rounded is-primary">Log in</button>
+                <button class="button is-rounded is-info" onclick="window.location.href='/signup'">Sign up</button>
+                <button class="button is-rounded is-primary" onclick="window.location.href='/signin'">Log in</button>
             </div>
           </div>
         </div>
