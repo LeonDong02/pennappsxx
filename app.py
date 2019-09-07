@@ -19,33 +19,33 @@ def basic():
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     unsuccessful = 'Please check your credentials'
-    sucessful = 'Login Successful'
+    successful = 'Login Successful'
     if request.method == 'POST':
         email = request.form['name']
         password = request.form['pass']
         try:
             auth.sign_in_with_email_and_password(email, password)
-            return render_template('log.html', s=sucessful)
+            return render_template('log.html', s=successful)
         except:
             return render_template('log.html', us=unsuccessful)
 
-    return render_template('log.html')
+    return render_template('log.html', t="Log In")
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     unsuccessful = 'Please check your credentials'
-    sucessful = 'Login Successful'
+    successful = 'Login Successful'
     if request.method == 'POST':
         email = request.form['name']
         password = request.form['pass']
         try:
             auth.sign_in_with_email_and_password(email, password)
-            return render_template('log.html', s=sucessful)
+            return render_template('log.html', s=successful)
         except:
             return render_template('log.html', us=unsuccessful)
 
-    return render_template('log.html')
+    return render_template('log.html', t="Sign Up")
 
 
 
