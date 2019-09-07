@@ -6,7 +6,7 @@
     "node-sass": "^4.12.0"
   },
   "scripts": {
-    "scss": "node-sass src/styles.scss public/css/styles.css"
+    "scss": "node-sass src/styles.scss public/css/styles.css -w"
   },
   "devDependencies": {
     "bulma": "^0.7.5"
