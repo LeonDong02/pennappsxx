@@ -29,3 +29,8 @@ $subtitle-color: $medium-aqua;
 
 
 @import "../node_modules/bulma/bulma.sass";
+
+.overflow-list {
+    height: 70vh;
+    overflow-y: scroll;
+}
