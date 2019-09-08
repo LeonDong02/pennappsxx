@@ -15,30 +15,6 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 
 auth = firebase.auth()
 
-auth_data = {
-    'grant_type'    : 'client_credentials',
-    'client_id'     : gsConfig['client_id'],
-    'client_secret' : gsConfig['client_secret'],
-    'scope'         : 'read_content read_financial_data read_product_data read_user_profile'
-}
-
-# create session instance
-session = requests.Session()
-
-# make a POST to retrieve access_token
-auth_request = session.post('https://idfs.gs.com/as/token.oauth2', data = auth_data)
-access_token_dict = json.loads(auth_request.text)
-access_token = access_token_dict['access_token']
-
-# update session headers
-session.headers.update({'Authorization':'Bearer '+ access_token})
-
-# test API connectivity 
-request_url = 'https://api.marquee.gs.com/v1/users/self'
-gsRequest = session.get(url=request_url)
-print(gsRequest.text)
-
-
 @app.route('/', methods=['GET', 'POST'])
 def basic():
     return render_template('index.html')
