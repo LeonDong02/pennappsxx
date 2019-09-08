@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="./favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,41 +13,54 @@
         <link rel="manifest" href="./manifest.json" />
         <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
         <script src="{{ url_for('static',filename='scripts/script.js') }}"></script>
-        <title>About Us</title>
-</head>
-<body>
-    <div id="root">
+        <title>About | Money Machine</title>
+    </head>
+    <body>
+        <div id="root">
             <nav class="navbar is-spaced is-fixed-top">
                 <div class="navbar-brand">
-                <a href="/" class="navbar-item">
-                    <img src="{{ url_for('static',filename='images/logo.png') }}"/>                    
-                </a>
-                <a id="navBurger" role="button" class="navbar-burger" data-target="navMenu">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+                    <a href="/" class="navbar-item">
+                        <img src="{{ url_for('static',filename='images/logo.png') }}"/>                    
+                    </a>
+                    <a id="navBurger" role="button" class="navbar-burger" data-target="navMenu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
                 </div>
                 <div id="navMenu" class="navbar-menu">
-                <div class="navbar-start">
-                </div>
-                <div class="navbar-end">
-                    <a class="navbar-item is-active">
-                        About
-                    </a>
-                    <a class="navbar-item">
-                        Contact Us
-                    </a>
+                    <div class="navbar-start"></div>
+                    <div class="navbar-end">
+                        <a class="navbar-item is-active">
+                            About
+                        </a>
+                        <a class="navbar-item">
+                            Contact Us
+                        </a>
                     </div>
                 </div>
             </nav>
             <section class="hero is-fullheight">
                 <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title is-1">About Us</h1>
-                </div>
+                    <div class="container has-text-centered">
+                        <h1 class="title is-1">About Us</h1>
+                    </div>
                 </div>
             </section>
+            <section class="section">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column">
+                            <img src="{{ url_for('static',filename='images/us.jpg') }}" alt="A photo of us">
+                        </div>
+                        <div class="column">
+                            <div class="box has-background-primary">
+                                <h1 class="title">About Money Machine</h1>
+                                <p>Money Machine is a project started by three high-school students </p>
+                            </div>
+                        </div>
+                    </div>
+            </section>
         </div>
-</body>
+    </body>
 </html>

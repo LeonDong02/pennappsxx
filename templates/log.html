@@ -13,7 +13,7 @@
         <link rel="manifest" href="./manifest.json" />
         <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
         <script src="{{ url_for('static',filename='scripts/script.js') }}"></script>
-        <title>Sign in | Money Machine</title>
+        <title>{{t}} | Money Machine</title>
     </head>
 
     <body>
@@ -46,12 +46,23 @@
                 <div class="columns is-centered">
                     <div class="column is-6">
                         <h1 class="title">{{t}} to use Money Machine</h1>
-                        {% if us %}
-                            {{us}}
+                        {% if loginFailed %}
+                            <div class="box has-background-danger">
+                                <h1 class="title is-danger">Failed to log in. Please try again.</h1>
+                                <p>Did you type your credentials correctly?</p>
+                            </div>
                         {% endif %}
-                
-                        {% if s %}
-                            {{s}}
+                        {% if signupFailed %}
+                            <div class="box has-background-danger">
+                                <h1 class="title is-danger">Failed to sign up. Please try again.</h1>
+                                <p>Did you enter your email correctly?</p>
+                                <p>Is your password complex enough?</p>
+                            </div>
+                        {% endif %}
+                        {% if signupSuccess %}
+                            <div class="box has-background-success">
+                                <h1 class="title is-success">Signed up successfully. You may now log in.</h1>
+                            </div>
                         {% endif %}
                         <div class="box has-text-centered">
                             <form method="POST">
