@@ -559,10 +559,10 @@
                     </ul>
                 </div>
                 <div class="column">
-                  <div class="box has-background-primary">
                     <img id="stockImage" src="{{ url_for('static',filename='images/stocks/default.png') }}" alt="Sorry, no stock chart available.">
-                    <h1 id="stockName" class="title is-1">Stock name</h1>
-                    <p class="has-text-info"></p>
+                    <div class="box has-background-primary">
+                    <h1 id="stockName" class="title is-1">Choose a stock on the left.</h1>
+                    <p id="stockInfo" class="has-text-info"></p>
                   </div>
                 </div>
               </div>
