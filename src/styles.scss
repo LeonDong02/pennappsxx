@@ -4,6 +4,7 @@
 $cream: #fff1c1;
 $medium-aqua: #2588b3;
 $dark-aqua: #293462;
+$darker-aqua: #1c2442;
 $dark-red: #f76262;
 
 // fonts
@@ -20,6 +21,8 @@ $box-background-color: $dark-aqua;
 $navbar-item-color: $background;
 $navbar-item-hover-background-color: $medium-aqua;
 $navbar-item-hover-color: $cream;
+$navbar-item-active-background-color: $darker-aqua;
+$navbar-item-active-color: $cream;
 
 $title-color: $dark-aqua;
 $subtitle-color: $medium-aqua;
