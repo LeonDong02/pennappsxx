@@ -7,30 +7,34 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM
 
+
 #to plot within notebook
 import matplotlib.pyplot as plt
 
 #setting figure size
 from matplotlib.pylab import rcParams
-rcParams['figure.figsize'] = 20,10
+rcParams['figure.figsize'] = 16,8
+rcParams['figure.facecolor'] = 'black'
 
 #for normalizing data
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler(feature_range=(0, 1))
 
 #read the file
-df = pd.read_csv('NSE-TATAGLOBAL11.csv')
+df = pd.read_csv('data/AAPL.csv')
 
 #print the head
 df.head()
 
 
 #setting index as date
-df['Date'] = pd.to_datetime(df.Date,format='%Y-%m-%d')
+df['Date'] = pd.to_datetime(df.Date,format='%d-%b-%y')
 df.index = df['Date']
 
 #plot
 plt.figure(figsize=(16,8))
+plt.set_facecolor=('black')
+plt.show()
 
 #creating dataframe
 data = df.sort_index(ascending=True, axis=0)
@@ -44,7 +48,11 @@ new_data.index = new_data.Date
 new_data.drop('Date', axis=1, inplace=True)
 
 #creating train and test sets
+
+new_data = new_data[len(new_data)/2:]
+
 dataset = new_data.values
+
 
 training = 4*len(new_data)/5
 
@@ -72,7 +80,7 @@ model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
 model.fit(x_train, y_train, epochs=1, batch_size=1, verbose=2)
 
-#predicting 246 values, using past 60 from the train data
+#predicting using past 60 from the train data
 inputs = new_data[len(new_data) - len(valid) - 60:].values
 inputs = inputs.reshape(-1,1)
 inputs  = scaler.transform(inputs)
@@ -92,4 +100,5 @@ valid = new_data[training:]
 valid['Predictions'] = closing_price
 plt.plot(train['Close'])
 plt.plot(valid[['Predictions']])
+
 plt.show()
