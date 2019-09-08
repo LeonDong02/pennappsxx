@@ -302,7 +302,7 @@ pre {
   font-family: monospace; }
 
 body {
-  color: #4a4a4a;
+  color: #293462;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5; }
@@ -355,7 +355,7 @@ fieldset {
 pre {
   -webkit-overflow-scrolling: touch;
   background-color: #fff1c1;
-  color: #4a4a4a;
+  color: #293462;
   font-size: 0.875em;
   overflow-x: auto;
   padding: 1.25rem 1.5rem;
@@ -1152,7 +1152,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   background-color: #293462;
   border-radius: 6px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  color: #4a4a4a;
+  color: #293462;
   display: block;
   padding: 1.25rem; }
 
@@ -1203,7 +1203,7 @@ a.box:active {
   .button.is-text {
     background-color: transparent;
     border-color: transparent;
-    color: #4a4a4a;
+    color: #293462;
     text-decoration: underline; }
     .button.is-text:hover, .button.is-text.is-hovered, .button.is-text:focus, .button.is-text.is-focused {
       background-color: #fff1c1;
@@ -2315,11 +2315,11 @@ a.box:active {
   .progress::-webkit-progress-bar {
     background-color: #dbdbdb; }
   .progress::-webkit-progress-value {
-    background-color: #4a4a4a; }
+    background-color: #293462; }
   .progress::-moz-progress-bar {
-    background-color: #4a4a4a; }
+    background-color: #293462; }
   .progress::-ms-fill {
-    background-color: #4a4a4a;
+    background-color: #293462;
     border: none; }
   .progress.is-white::-webkit-progress-value {
     background-color: white; }
@@ -2407,7 +2407,7 @@ a.box:active {
     animation-name: moveIndeterminate;
     animation-timing-function: linear;
     background-color: #dbdbdb;
-    background-image: linear-gradient(to right, #4a4a4a 30%, #dbdbdb 30%);
+    background-image: linear-gradient(to right, #293462 30%, #dbdbdb 30%);
     background-position: top left;
     background-repeat: no-repeat;
     background-size: 150% 150%; }
@@ -2599,7 +2599,7 @@ a.box:active {
   align-items: center;
   background-color: #fff1c1;
   border-radius: 4px;
-  color: #4a4a4a;
+  color: #293462;
   display: inline-flex;
   font-size: 0.75rem;
   height: 2em;
@@ -3646,7 +3646,7 @@ a.tag:hover {
 .card {
   background-color: white;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  color: #4a4a4a;
+  color: #293462;
   max-width: 100%;
   position: relative; }
 
@@ -3841,7 +3841,7 @@ button.dropdown-item {
   display: block;
   padding: 0.5em 1em; }
   .list-item:not(a) {
-    color: #4a4a4a; }
+    color: #293462; }
   .list-item:first-child {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px; }
@@ -3918,7 +3918,7 @@ a.list-item {
   line-height: 1.25; }
   .menu-list a {
     border-radius: 2px;
-    color: #4a4a4a;
+    color: #293462;
     display: block;
     padding: 0.5em 0.75em; }
     .menu-list a:hover {
@@ -4040,7 +4040,7 @@ a.list-item {
 
 .message-header {
   align-items: center;
-  background-color: #4a4a4a;
+  background-color: #293462;
   border-radius: 4px 4px 0 0;
   color: #fff;
   display: flex;
@@ -4063,7 +4063,7 @@ a.list-item {
   border-radius: 4px;
   border-style: solid;
   border-width: 0 0 0 4px;
-  color: #4a4a4a;
+  color: #293462;
   padding: 1.25em 1.5em; }
   .message-body code,
   .message-body pre {
@@ -5101,7 +5101,7 @@ a.navbar-item,
       color: #363636; }
 
 .panel-list a {
-  color: #4a4a4a; }
+  color: #293462; }
   .panel-list a:hover {
     color: #3273dc; }
 
@@ -5160,7 +5160,7 @@ label.panel-block {
     border-bottom-color: #dbdbdb;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    color: #4a4a4a;
+    color: #293462;
     display: flex;
     justify-content: center;
     margin-bottom: -1px;

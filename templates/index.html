@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/favicon.ico') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -41,6 +41,7 @@
       <section class="hero is-fullheight">
         <div class="hero-body">
           <div class="container has-text-centered">
+            <img src="static/images/logo.png" style="position: fixed;left: 20%;top: 25%;width: 60%;opacity: .2;z-index: -1;">
             <h1 class="title is-1">Let the machine do the work.</h1>
             <h2 class="subtitle">Trustworthy stock predictor using machine learning technology.</h2>
             <div class="buttons are-large is-centered">
