@@ -7,53 +7,57 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM
 
+
 #to plot within notebook
 import matplotlib.pyplot as plt
 
 #setting figure size
 from matplotlib.pylab import rcParams
-rcParams['figure.figsize'] = 20,10
+rcParams['figure.figsize'] = 16,8
+rcParams['figure.facecolor'] = 'black'
 
 #for normalizing data
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler(feature_range=(0, 1))
 
 #read the file
-df = pd.read_csv('NSE-TATAGLOBAL11.csv')
+df = pd.read_csv('data/AAPL.csv')
 
 #print the head
 df.head()
 
 
 #setting index as date
-df['Date'] = pd.to_datetime(df.Date,format='%Y-%m-%d')
+df['Date'] = pd.to_datetime(df.Date,format='%d-%b-%y')
 df.index = df['Date']
 
 #plot
 plt.figure(figsize=(16,8))
+plt.set_facecolor=('black')
+plt.show()
 
 #creating dataframe
 data = df.sort_index(ascending=True, axis=0)
 new_data = pd.DataFrame(index=range(0,len(df)),columns=['Date', 'Close'])
-for i in range(0,len(data)-10):
+for i in range(0,len(data)):
     new_data['Date'][i] = data['Date'][i]
     new_data['Close'][i] = data['Close'][i]
-
-for i in range(len(data)-10, len(data)):
-    new_data['Date'][i] = data['Date'][i]
-
 
 #setting index
 new_data.index = new_data.Date
 new_data.drop('Date', axis=1, inplace=True)
-threequarters = len(new_data)*4/5
 
 #creating train and test sets
+
+new_data = new_data[len(new_data)/2:]
+
 dataset = new_data.values
 
-train = dataset[0:threequarters,:]
-valid = dataset[threequarters:,:]
-print(threequarters)
+
+training = 4*len(new_data)/5
+
+train = dataset[0:training,:]
+valid = dataset[training:,:]
 
 #converting dataset into x_train and y_train
 scaler = MinMaxScaler(feature_range=(0, 1))
@@ -76,37 +80,25 @@ model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
 model.fit(x_train, y_train, epochs=1, batch_size=1, verbose=2)
 
-#predicting 246 values, using past 60 from the train data
-inputs = new_data[len(new_data) - len(valid) - 60:len(new_data)-10].values
+#predicting using past 60 from the train data
+inputs = new_data[len(new_data) - len(valid) - 60:].values
 inputs = inputs.reshape(-1,1)
-inputs = scaler.transform(inputs)
+inputs  = scaler.transform(inputs)
 
+X_test = []
+for i in range(60,inputs.shape[0]):
+    X_test.append(inputs[i-60:i,0])
+X_test = np.array(X_test)
 
-train = new_data
-valid = new_data[threequarters+10:]
+X_test = np.reshape(X_test, (X_test.shape[0],X_test.shape[1],1))
+closing_price = model.predict(X_test)
+closing_price = scaler.inverse_transform(closing_price)
 
-
-for j in range(0,10):
-    X_test = []
-    for i in range(60+j,inputs.shape[0]):
-        X_test.append(inputs[i-60:i,0])
-    X_test = np.array(X_test)
-
-    X_test = np.reshape(X_test, (X_test.shape[0],X_test.shape[1],1))
-    closing_price = model.predict(X_test)
-    inputs = np.append(inputs, [closing_price[-1]], axis=0)
-    closing_price = scaler.inverse_transform(closing_price)
-
-    if j == 9:
-        valid['Predictions'] = closing_price
-        print(closing_price)
-
-
-
-
-
-
-#for plotting
+#plotting
+train = new_data[:len(new_data)-15]
+valid = new_data[training:]
+valid['Predictions'] = closing_price
 plt.plot(train['Close'])
 plt.plot(valid[['Predictions']])
+
 plt.show()
