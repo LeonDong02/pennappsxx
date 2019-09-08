@@ -11,9 +11,6 @@ firebase = pyrebase.initialize_app(config)
 
 auth = firebase.auth()
 
-client_id = '952b53ccbb8e42d1b2ce8a9349acbdd2'
-client_secret = '37209d8ad693257c68ad262d339b09cadf12828e213210f98f8742811a80c21a'
-
 auth_data = {
     'grant_type'    : 'client_credentials',
     'client_id'     : client_id,
