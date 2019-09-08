@@ -32,7 +32,7 @@ access_token = access_token_dict['access_token']
 # update session headers
 session.headers.update({'Authorization':'Bearer '+ access_token})
 
-# test API connectivity
+# test API connectivity 
 request_url = 'https://api.marquee.gs.com/v1/users/self'
 gsRequest = session.get(url=request_url)
 print(gsRequest.text)
@@ -49,7 +49,7 @@ def about():
 
 
 @app.route('/signin', methods=['GET', 'POST'])
-def signin():
+def log():
     unsuccessful = 'Please check your credentials'
     successful = 'Login Successful'
     if request.method == 'POST':
@@ -57,7 +57,7 @@ def signin():
         password = request.form['pass']
         try:
             auth.sign_in_with_email_and_password(email, password)
-            return render_template('log.html', t="Log In", s=successful)
+            return render_template('members.html', s=successful)
         except:
             return render_template('log.html', t="Log In", us=unsuccessful)
 
@@ -66,19 +66,16 @@ def signin():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    unsuccessful = 'Please check your credentials'
-    successful = 'Login Successful'
     if request.method == 'POST':
         email = request.form['name']
         password = request.form['pass']
-        try:
-            auth.sign_in_with_email_and_password(email, password)
-            return render_template('log.html', t="Sign Up", s=successful)
-        except:
-            return render_template('log.html', t="Sign Up", us=unsuccessful)
-
+        user = auth.create_user_with_email_and_password(email, password)
     return render_template('log.html', t="Sign Up")
 
+
+@app.route('/members', methods=['GET', 'POST'])
+def members():
+    return render_template('members.html')
 
 
 if __name__ == '__main__':
