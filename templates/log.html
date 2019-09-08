@@ -33,32 +33,32 @@
                 <div class="navbar-start">
                 </div>
                 <div class="navbar-end">
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="/about">
                         About
                     </a>
                     </div>
                 </div>
             </nav>
-            <section class="section is-large">
+            <section class="section">
                 <div class="columns is-centered">
                     <div class="column is-6">
                         <h1 class="title">{{t}} to use Money Machine</h1>
                         {% if loginFailed %}
-                            <div class="box has-background-danger">
-                                <h1 class="title is-danger">Failed to log in. Please try again.</h1>
-                                <p>Did you type your credentials correctly?</p>
+                            <div class="box has-background-primary">
+                                <h1 class="title is-5">Failed to log in. Please try again.</h1>
+                                <h2 class="subtitle is-6 has-text-info">Did you type your credentials correctly?</h2>
                             </div>
                         {% endif %}
                         {% if signupFailed %}
-                            <div class="box has-background-danger">
-                                <h1 class="title is-danger">Failed to sign up. Please try again.</h1>
-                                <p>Did you enter your email correctly?</p>
-                                <p>Is your password complex enough?</p>
+                            <div class="box has-background-primary">
+                                <h1 class="title is-5">Failed to sign up. Please try again.</h1>
+                                <h2>Did you enter your email correctly?</h2>
+                                <h2 class="subtitle is-6 has-text-info">Is your password complex enough?</h2>
                             </div>
                         {% endif %}
                         {% if signupSuccess %}
                             <div class="box has-background-success">
-                                <h1 class="title is-success">Signed up successfully. You may now log in.</h1>
+                                <h1 class="title is-5 is-success">Signed up successfully. You may now log in.</h1>
                             </div>
                         {% endif %}
                         <div class="box has-text-centered">
